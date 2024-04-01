@@ -70,32 +70,19 @@ function MovieComponent({ movies }: { movies: Movie[] }) {
 		return (
 			<div
 				key={movie.id}
-				className="flex flex-col w-full gap-8 p-4 border-2 border-slate-700"
+				className="flex flex-col w-full gap-8 p-6 border-2 border-black rounded-2xl"
 			>
 				<div className="flex flex-col">
-					<div className="flex justify-between items-end">
-						<div className="text-3xl font-bold">{movie.title}</div>
-						<div className=" italic">{movie.genre}</div>
+					<div className="flex justify-center items-center flex-col gap-3">
+						<div className="text-3xl font-semibold">{movie.title}</div>
+						<div className=" italic"><span className="text-[#b7990d]">Genre:</span> {movie.genre}</div>
 					</div>
 					<div className="flex justify-between">
-						<div>{movie.director}</div>
-						<div>{movie.releaseYear}</div>
+						<div><span className="text-[#b7990d]">Directed by: </span>{movie.director}</div>
+						<div><span className="text-[#b7990d]">Release Year: </span>{movie.releaseYear}</div>
 					</div>
 				</div>
 				<div className="flex flex-col gap-4">
-					<div className="flex justify-between p-2 py-4 bg-slate-200">
-						<div className="font-bold text-xl">
-							{" "}
-							Total Reviews : {reviewElements.length}
-						</div>
-						<div className="font-bold text-xl">
-							Average Rating :{" "}
-							{movie.reviews.reduce(
-								(acc, review) => acc + review.rating,
-								0
-							) / movie.reviews.length || "Unrated"}
-						</div>
-					</div>
 					<div className="flex flex-col gap-2 overflow-auto h-60">{reviewElements}</div>
 					<div className="font-bold text-xl">Add a rating</div>
 					<form
@@ -107,7 +94,7 @@ function MovieComponent({ movies }: { movies: Movie[] }) {
 							<select
 								name="rating"
 								id="rating"
-								className="border-2 border-black p-2"
+								className="border-2 border-black p-2 bg-gray-700 rounded-lg"
 							>
 								<option value="1">1 star</option>
 								<option value="2">2 stars</option>
@@ -121,12 +108,12 @@ function MovieComponent({ movies }: { movies: Movie[] }) {
 							<textarea
 								name="description"
 								id="description"
-								className="border-2 border-black p-2"
+								className="border-2 border-black p-2 bg-gray-700 rounded-lg"
 							></textarea>
 						</div>
 						<button
 							type="submit"
-							className="bg-blue-500 text-white p-2 rounded-md"
+							className="bg-[#2c8c99] text-white p-2 rounded-md"
 						>
 							Submit Review
 						</button>

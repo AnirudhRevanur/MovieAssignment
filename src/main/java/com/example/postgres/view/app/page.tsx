@@ -17,8 +17,8 @@ export default async function Home() {
 	console.log(movies);
 
 	return (
-		<div className="w-full items-start justify-center flex flex-col gap-8 p-20">
-			<div className="text-4xl">Movies</div>
+		<div className="w-full items-center justify-center flex flex-col bg-[#2b2b2b] text-white gap-8 p-20">
+			<div className="text-4xl">Movie Reviews</div>
 			<MovieComponent movies={movies} />
 		</div>
 	);
